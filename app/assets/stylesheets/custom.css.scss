@@ -1,0 +1,49 @@
+$navbar-default-bg: #216869;
+
+//Colors:  #1F2421; #216869, #49A078, #9CC5A1, #DCE1DE
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#logo {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left;
+    margin-right: 10px;
+    font-size: 2em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    padding-top: 9px;
+    font-weight: bold;
+    text-decoration: none
+    
+}
+
+#logo:hover {
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    padding-top: 80px;
+}
+
+.nav_user_icon {
+    margin-top: 20px;
+    float: right;
+    border-radius: 50%;
+}
+
+.nav_item {
+    margin-left: 25px;
+    float: left;
+    margin-top: 20px;
+    
+}
+
+
+.center {
+    text-align: center;
+}
+
