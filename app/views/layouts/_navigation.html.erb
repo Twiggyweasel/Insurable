@@ -10,12 +10,18 @@
       <div class="nav_item">
         <%= link_to "link 3", "" , class: "btn btn-default" %>
       </div> --> 
+      <% if logged_in? %>
+      <div class="nav_user_icon">
+      <%= link_to "logout", logout_path, class: "btn btn-danger" %>
+      </div>
+      <% else %>
+         <div class="nav_user_icon">
+        <%= link_to "Sign Up", register_path, class: "btn btn-default" %>
+      </div>
       <div class="nav_user_icon">
         <%= link_to "login", login_path, class: "btn btn-primary" %>
       </div>
-      <div class="nav_user_icon">
-        <%= link_to "Sign Up", register_path, class: "btn btn-default" %>
-      </div>
+      <% end %>
       
     </div>
 </header>
