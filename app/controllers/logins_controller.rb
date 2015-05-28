@@ -10,6 +10,9 @@ class LoginsController < ApplicationController
         session[:user_id] = user.id
         flash[:success] = "You are now logged in"
         redirect_to root_path
+      else
+      flash.now[:danger] = "Your email address or password doesn't match our records"
+      render 'new'
       end
     end
     
