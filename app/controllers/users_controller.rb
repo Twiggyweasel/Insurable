@@ -11,8 +11,8 @@ class UsersController < ApplicationController
     if @user.save
       #do something
       flash[:success] = "Your account has been created successfully!"
-      #session[:chef_id] = chef.id
-      redirect_to home_path
+      session[:user_id] = @user.id
+      redirect_to user_path(current_user)
     else
       render 'new'
     end
@@ -20,6 +20,9 @@ class UsersController < ApplicationController
   
   def show
     #@homes = User.homes(params[:id])  
+  end
+  
+  def index
   end
   
   
