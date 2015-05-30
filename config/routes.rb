@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   
   resources :users, except: [:new]
   
+  resources :items
+  
+  resources :rooms
+  
+  resources :homes
+  
   get '/register', to: 'users#new'
   
   get '/login', to: 'logins#new'

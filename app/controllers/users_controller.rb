@@ -10,8 +10,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       #do something
-      flash[:success] = "Your account has been created successfully!"
       session[:user_id] = @user.id
+      @home = Home.create do |u|
+        u.home_name = "New Home"
+        u.user_id = @user.id
+      end
+      
+      flash[:success] = "Your account has been created successfully!"
+      
       redirect_to user_path(current_user)
     else
       render 'new'

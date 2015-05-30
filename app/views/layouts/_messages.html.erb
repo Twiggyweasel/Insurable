@@ -1,9 +1,17 @@
 <div class="row">
-    <div class="col-md-12">
+    <div id="alert-item" class="col-md-12">
         <% flash.each do |message_type, message| %>
             <div class="alert alert-<%= message_type %>"><%= message %>
-            <a class="close" data-dismiss="alert">&#215;</a>
             </div>
         <% end %>
     </div>
 </div>
+<script type="text/javascript">
+$("#alert-item").fadeTo(2000, 500).slideUp(500, function(){
+    $("#alert-item").alert('close');
+});
+</script>
+<!--
+<$(".alert").delay(4000).slideUp(200, function() {
+    $(this).alert('close');
+});-->
