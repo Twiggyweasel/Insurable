@@ -5,11 +5,11 @@ class RoomsController < ApplicationController
   end
   
   def create
-    @room = Room.new(rooms_params)
+    @room = Room.new(room_params)
     @room.user = current_user
     if @room.save
       flash[:success] = "Your item was created successfully!"
-      redirect_to user_path(current_user)
+      redirect_to room_path(@room)
     else
       render :new
     end
