@@ -1,30 +1,47 @@
 class ItemsController < ApplicationController
    
    
-   def new
+  def new
     @item = Item.new
-   end
-   
-    def create
-      @item = Item.new(item_params)
-      @item.user = current_user
-      if @item.save
-        #do something
-        flash[:success] = "Your item was created successfully!"
-        redirect_to user_path(current_user)
-      else
-        render :new
-      end
+  end
+  
+  def create
+    @item = Item.new(item_params)
+    @item.user = current_user
+    if @item.save
+      #do something
+      flash[:success] = "Your item was created successfully!"
+      redirect_to room_path(@item.room_id)
+    else
+      render :new
     end
+  end
+  
+  def show
+    
+  end
    
-   def show
+  def edit
+    @item = Item.find(params[:id])
+  end
    
-   end
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      #do something
+      flash[:success] = "Your item was updated successfully!"
+      redirect_to room_path(@item.room_id)
+    else
+    
+    render :edit
+    
+    end
+  end
    
    private 
    
-  def item_params
-    params.require(:item).permit(:item_name,:purchase_date, :price, :home_id, :room_id)
-  end
+    def item_params
+      params.require(:item).permit(:item_name,:purchase_date, :price, :home_id, :room_id)
+    end
  
 end

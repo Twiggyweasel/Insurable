@@ -14,9 +14,16 @@ class RoomsController < ApplicationController
       render :new
     end
   end
-  
-  def rooms_params
-    params.require(:room).permit(:room_name, :home_id)
-  end
 
+  def show
+    @room = Room.find(params[:id])  
+  end
+  
+  
+  private 
+    def room_params
+      params.require(:room).permit(:room_name,:user_id, :home_id)
+    end
+    
+  
 end

@@ -1,0 +1,35 @@
+<div class='row'>
+  <div class='col-md-2'>
+    <ul class="nav nav-pills nav-stacked">
+      <li role="presentation" class="active"><a href="#">summary</a></li>
+      <li role="presentation"><a href="#">Profile</a></li>
+      <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+  </div>
+  <% @user.homes.each do |home| %>
+  
+    <div class="col-md-9 center">
+      <h1><%= home.home_name %></h1>
+      <br>
+      <hr/>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Room</th>
+            <th class="center"># Of Items</th>
+            <th class="center">Total Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.rooms.each do |room| %>
+          <tr>
+            <td><%= link_to room.room_name, room_path(room) %></td>
+            <td class="center"><%= room.item_total %></td>
+            <td class="center">$<%= room.item_value %>.00</td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>

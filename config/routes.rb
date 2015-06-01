@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   
   get '/home', to: 'pages#home'
   
+  get '/show', to: 'pages#show'
+  
   resources :users, except: [:new]
   
   resources :items
