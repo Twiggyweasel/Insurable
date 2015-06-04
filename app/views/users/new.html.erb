@@ -1,5 +1,4 @@
 <%= render 'shared/errors', obj: @user %>
-
 <div class="row">
     <div class="container"> 
         <div class="col-lg-6 col-lg-offset-3 center">
@@ -17,16 +16,20 @@
                 <%= f.label :password %>
                 <%= f.password_field :password %>
                 
-                <!--<#%= f.label :password_confirmation, "Confirmation" %>
-                <#%= f.password_field :password_confirmation %>
-                -->
+                  <%= f.fields_for :homes do |p| %>
+                    <%= p.label :home_name %>
+                    <%= p.text_field :home_name %>
+                  <% end %>
+                  
+                <%#= f.label :password_confirmation, "Confirmation" %>
+                <%#= f.password_field :password_confirmation %>
+
                 <%= f.submit "Register", class: "btn btn-success" %>
                 <% end %>
             </div>
         </div>
     </div>
 </div>
-
 <!--
 <div class="btn-group">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
     has_many :rooms
     has_many :homes
     has_many :items
+    accepts_nested_attributes_for :homes
     
     before_save { self.email = email.downcase }
     #validates :user_name, presence: true, length: { minimum: 3, maximum: 40 } 
@@ -10,4 +11,6 @@ class User < ActiveRecord::Base
                                       uniqueness: { case_sensitive: false}, 
                                       format: { with: VALIDATE_EMAIL_REGEX }
     has_secure_password
+    
+   
 end

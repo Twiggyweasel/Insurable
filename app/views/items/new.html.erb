@@ -14,10 +14,10 @@
       <%= f.text_field :item_name, :placeholder => "placeholder text" %>
       
       <%= f.label :purchase_date %>
-      <%= f.date_field :purchase_date %>
+      <%= f.date_field :purchase_date, class: "form-control" %>
       
       <%= f.label :price %>
-      <%= f.number_field :price %>
+      <%= f.number_field :price, class: "form-control", step: "0.01" %>
       <%= f.label :Home %>
       <%= f.select :home_id, current_user.homes.collect{ |c| [c.home_name, c.id] } %>
       <%= f.label :Room %>

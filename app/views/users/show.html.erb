@@ -2,28 +2,36 @@
 <% @user.homes.each do |home| %>
 <%= link_to "Add Room", new_room_path, class: 'btn btn-primary'%>
 <%= link_to "Add Item", new_item_path, class: 'btn btn-primary'%>
-  <div class='row'>
-    <div class="col-lg-12 center">
-      <h2><%= home.home_name %></h2>
-    </div>
+<br>
+<br>
+<div class='row'>
+  <div class='col-md-2'>
+    <ul class="nav nav-pills nav-stacked">
+      <li role="presentation" class="active"><%= link_to "Summary", user_path(current_user) %></li>
+      <li role="presentation"><a href="#">Rooms</a></li>
+      <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
   </div>
-  <table class="table table-hover">
-    <thead>
-    <tr>
-      <th>Room</th>
-      <th class="center"># Of Items</th>
-      <th class="center">Total Value</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @user.rooms.each do |room| %>
-    <tr>
-      <td><%= link_to room.room_name, room_path(room) %></td>
-      <td class="center"><%= room.item_total %></td>
-      <td class="center">$<%= room.item_value %>.00</td>
-    </tr>
-    <% end %>
-    </tbody>
-  </table>
-  
+    <div class="col-md-10 center">
+      <h2><%= home.home_name %></h2>
+    
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Room</th>
+          <th class="center"># Of Items</th>
+          <th class="center">Total Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @user.rooms.each do |room| %>
+        <tr>
+          <td><%= link_to room.room_name, room_path(room) %></td>
+          <td class="center"><%= room.item_total %></td>
+          <td class="center">$<%= room.item_value %>.00</td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+  </div>
 <% end %>

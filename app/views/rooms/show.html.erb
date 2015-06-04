@@ -11,6 +11,34 @@
 <hr/>
 <div class='row'>
     <div class='col-md-8 col-md-offset-2'>
+        <table class='table table condensed'>
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Item Name</th>
+              <th>Purchase Date</th>
+              <th>Value</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            <% @room.items.each do |item_test| %>
+              <th><a href="#" class="thumbnail"><img src="https://placehold.it/140x140" alt=""></a></th>
+              <th><%= item_test.item_name %></th>
+              <th><%= item_test.purchase_date %></th>
+              <th><%= item_test.price %></th>
+              <th><%= link_to 'Edit',edit_item_path(item_test), class:'btn btn-primary btn-sm' %>  <%= link_to 'Delete', '', class:'btn btn-danger btn-sm' %></th>
+            </tr>
+            <% end %>
+          </tbody>
+            
+        </table>
+        
+    </div>
+</div>
+<div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
         <% @room.items.each do |item| %>
         <div class='panel panel-info'>
             <div class='panel-heading'>
@@ -20,7 +48,7 @@
                 <div class='row'>
                     <div class="col-md-2 col-md-offset-1">
                         <a href="#" class="thumbnail">
-                        <img src="http://placehold.it/140x140" alt="">
+                        <img src="https://placehold.it/140x140" alt="">
                         </a>
                     </div>
                     <div class='col-md-2 top-offset'>
@@ -30,7 +58,7 @@
                         <h4 class='center'>Value: $<%= item.price %>.00</h5>
                     </div>
                     <div class='col-md-3 top-offset'>
-                        <h4><%= link_to 'Edit',edit_item_path(item), class:'label label-primary' %> / <%= link_to 'Delete','', class:'label label-danger' %></h4>
+                        <h4><%= link_to 'Edit',edit_item_path(item), class:'btn btn-primary' %> / <%= link_to 'Delete','', class:'label label-danger' %></h4>
                     </div>
                 </div>
             </div>
@@ -64,3 +92,4 @@
   $('#myInput').focus()
 })
 </script>
+
