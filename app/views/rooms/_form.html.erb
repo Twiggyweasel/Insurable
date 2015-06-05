@@ -1,0 +1,11 @@
+<h1>Test</h1>
+<%= form_for @room do |f| %>
+            
+            <%= f.label :Home %>
+            <%= f.select :home_id, current_user.homes.collect{ |c| [c.home_name, c.id] } %>
+            
+            <%= f.label :room_name %>
+            <%= f.text_field :room_name %>
+            
+            <%= f.submit class:"btn btn-success" %>
+            <% end %>
