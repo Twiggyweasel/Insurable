@@ -20,13 +20,3 @@
         
       <% end %>
       
-<script type="text/javascript">
-    
-    $('#item_item_picture').bind('change', function() {
-        size_in_megabytes = this.files[0].size/1024/1024;
-        if (size.in_megabytes > 5) {
-            alert('Maxium file size is 5MB. Please choose a smaller file');
-        }
-    });
-    
-</script>
