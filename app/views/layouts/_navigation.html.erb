@@ -1,27 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-default">
     <div class="container">
-      <%= link_to "Insurable", root_path, class: "btn-lg", id: "logo"%>
-      <!--<div class="nav_item">
-        <#%= link_to "link 1", "", class: "btn btn-default" %>
-      </div>
-      <div class="nav_item">
-        <#%= link_to "link 2", "", class: "btn btn-default" %>
-      </div>
-      <div class="nav_item">
-        <#%= link_to "link 3", "" , class: "btn btn-default" %>
-      </div> --> 
+      <%= link_to "Insurable", user_path(current_user), class: "btn-lg", id: "logo"%>
       <% if logged_in? %>
-        <!--<div class="nav_item">
-            <div class="dropdown">
-              <#%= link_to '#', class: "btn btn-default btn-primary dropdown-toggle", "data-toggle" => "dropdown" do %>
-                Create New <b class="caret"></b>
-              <#% end %>
-              <ul class='dropdown-menu'>
-                <li><#%= link_to "Room", new_room_path %></li>
-                <li><#%= link_to "Item", new_item_path %></li>
-              </ul>
-            </div>
-        </div>-->
         <div class="nav_user_icon">
           <div class="dropdown">
             <%= link_to '#', class: "btn btn-default dropdown-toggle", "data-toggle" => "dropdown" do %>
@@ -40,7 +20,7 @@
           <%= link_to "Sign Up", register_path, class: "btn btn-default" %>
         </div>
         <div class="nav_user_icon">
-          <%= link_to "login", login_path, class: "btn btn-primary" %>
+          <%= link_to "login", login_path, class: "btn btn-primary", id:"login-active" %>
         </div>
         <% end %>
     </div>
