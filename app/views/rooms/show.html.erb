@@ -73,11 +73,11 @@
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
       <% @room.items.each_with_index do |item, index| %>
       <div class="panel panel-default">
-        <div class="panel-heading center" role="tab" id="heading<%= index.to_s %>">
+        <div class="panel-heading center" role="tab" id="heading<%= index.to_s %>" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index.to_s %>" aria-expanded="false" aria-controls="collapse<%= index.to_s %>">
           <h3 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index.to_s %>" aria-expanded="false" aria-controls="collapse<%= index.to_s %>">
+            <p>
               <%= item.item_name %>
-            </a>
+            </p>
           </h3>
         </div>
         <div id="collapse<%= index.to_s %>" class="panel-collapse collapse " role="tabpanel" aria-labelledby="heading<%= index.to_s %>">
