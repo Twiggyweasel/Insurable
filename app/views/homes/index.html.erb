@@ -1,0 +1,114 @@
+<%= csrf_meta_tags %>
+
+<div class='row'>
+  <div class='col-md-12 center'>
+    <h1><%= @home.home_name %></h1>
+    <hr/>
+  </div>
+</div>
+
+<!--<div class='row'>
+  <div class='col-md-8 col-md-offset-2 center'>
+    <div class='btn-group' role='toolbar'>
+      <#% @home.rooms.each do |room| %>
+      <button type='button' class='btn btn-default'>
+        <#%= room.room_name %>
+      </button>
+      <#% end %>     
+    </div>
+  </div>
+</div>-->
+<br>
+
+
+<!-- <div role="tabpanel">
+
+  <!-- Nav tabs -->
+  <div class="tabbable tabs-left">
+    <ul class="nav nav-tabs col-md-2" role="tablist">
+      <% @home.rooms.each_with_index do |room2, index| %>
+      <% if index == 0 %>
+      <li role="presentation" class="active"><a href="#<%= index.to_s %>" aria-controls="<%= index.to_s %>" role="tab" data-toggle="tab"><%= room2.room_name %></a></li>
+      <% end %>
+      <% if index >= 1 %>
+      <li role="presentation"><a href="#<%= index.to_s %>" aria-controls="<%= index.to_s %>" role="tab" data-toggle="tab"><%= room2.room_name %></a></li>
+      <!--<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+      <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>-->
+      <% end %>
+      <% end %>
+     <li role="presentation"><a href="#add" aria-controls="add" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-plus"></span></a></li>
+    </ul>
+  </div>
+  <!-- Tab panes -->
+ 
+  <div class="tab-content">
+    <% @home.rooms.each_with_index do |room3, index| %> 
+    <% if index == 0 %>
+    <div role="tabpanel" class="tab-pane fade in active" id="<%= index.to_s %>">
+      <div class='col-md-8 col-md-offset-1  center'>
+        <!--<h3><#%= room3.room_name %></h3>-->
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <% room3.items.each_with_index do |item, index| %>
+      <div class="panel panel-default">
+        <div class="panel-heading center" role="tab" id="heading<%room3.room_name %><%= index.to_s %>" data-toggle="collapse" data-parent="#accordion" href="#collapse<%room3.room_name %><%= index.to_s %>" aria-expanded="false" aria-controls="collapse<%room3.room_name %><%= index.to_s %>">
+          <h3 class="panel-title">
+            <p>
+              <%= item.item_name %>
+            </p>
+          </h3>
+        </div>
+        <div id="collapse<%room3.room_name %><%= index.to_s %>" class="panel-collapse collapse " role="tabpanel" aria-labelledby="heading<%room3.room_name %><%= index.to_s %>">
+          <div class="panel-body">
+            <img src=<%= item.item_picture %> width='75' height='75' class='pull-left'>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      </div>
+      </div>
+    </div>
+    <% end %>
+    <% if index >= 1 %>
+    <div role="tabpanel" class="tab-pane fade" id="<%= index.to_s %>">
+      <div class='col-md-8 col-md-offset-1 center'>
+        <!--<h3><#%= room3.room_name %></h3>-->
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <% room3.items.each_with_index do |item, index| %>
+          <div class="panel panel-default">
+            <div class="panel-heading center" role="tab" id="heading<%=room3.room_name %><%= index.to_s %>" data-toggle="collapse" data-parent="#accordion" href="#collapse<%=room3.room_name %><%= index.to_s %>" aria-expanded="false" aria-controls="collapse<%=room3.room_name %><%= index.to_s %>">
+              <h3 class="panel-title">
+                <p>
+                  <%= item.item_name %>
+                </p>
+              </h3>
+            </div>
+            <div id="collapse<%=room3.room_name %><%= index.to_s %>" class="panel-collapse collapse " role="tabpanel" aria-labelledby="heading<%=room3.room_name %><%= index.to_s %>">
+            <div class="panel-body">
+              test
+            </div>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      
+      </div>
+      
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="add">
+    </div>
+    <% end %>
+    <% end %>
+    <div class='col-md-8 col-md-offset-1 center'>
+      <%= link_to "New Item", new_item_path, remote: true, class: "btn btn-default wide" %><!--<button type='button' class='btn btn-default wide'><span class='glyphicon glyphicon-plus'></span></button>-->
+    </div>
+  </div>
+
+<!--<#%= link_to(new_room_path, remote: true, class: 'btn btn-primary btn-edit') do %><span class="glyphicon glyphicon-plus"></span><#% end %>-->
+
+<%= render 'rooms/dialog' %>
+
+<script type="text/javascript">
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+})
+</script>

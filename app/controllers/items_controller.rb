@@ -8,12 +8,19 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
-    if @item.save
-      #do something
-      flash[:success] = "Your item was created successfully!"
-      redirect_to room_path(@item.room_id)
-    else
-      render :new
+    respond_to do |format|
+      if @item.save
+        #do something
+        format.json { head :no_content}
+        format.js 
+        flash[:success] = "Your item was created successfully!"
+        #format.html {redirect_to homes_path }
+        #redirect_to room_path(@item.room_id)
+      else
+        format.json { render json: @item.errors.full_messages, 
+                            status: :unprocessable_entity }
+      end
+    
     end
   end
   

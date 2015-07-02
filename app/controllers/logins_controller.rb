@@ -1,7 +1,7 @@
 class LoginsController < ApplicationController
     
     def new
-    
+      
     end
     
     def create
@@ -9,7 +9,7 @@ class LoginsController < ApplicationController
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         flash[:success] = "You are now logged in"
-        redirect_to user_path(current_user)
+        redirect_to homes_path
       else
       flash.now[:danger] = "Your email address or password doesn't match our records"
       render 'new'

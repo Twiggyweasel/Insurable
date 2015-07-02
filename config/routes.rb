@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   
   resources :homes
   
+  resources :password_resets
+  
   get '/register', to: 'users#new'
   
   get '/login', to: 'logins#new'

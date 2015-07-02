@@ -1,5 +1,6 @@
 <%= form_for @room do |f| %>
-            
+    <div id="error_explanation" class="bg-danger text-danger">
+</div>        
     <%= f.label :Home %>
     <%= f.select :home_id, current_user.homes.collect{ |c| [c.home_name, c.id] } %>
             
